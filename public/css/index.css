@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #3c91e6;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #ddd;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #3c91e6;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0056b3;
+}
+
+nav form {
+    display: flex;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+nav form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+nav form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    background-color: #3c91e6;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Portfolio List Section */
+#home {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.usuarios-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.usuario-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    width: 250px; /* Tarjetas más pequeñas */
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.usuario-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.usuario-card img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: block;
+    object-fit: cover; /* Mejora la apariencia de la imagen */
+}
+
+.usuario-info h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.usuario-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    text-align: center;
+    color: #666;
+}
+
+.usuario-trabajos h4,
+.usuario-proyectos h4,
+.usuario-redes-sociales h4,
+.usuario-habilidades h4 {
+    font-size: 1em;
+    color: #3c91e6;
+    margin-bottom: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.usuario-trabajos ul,
+.usuario-proyectos ul,
+.usuario-redes-sociales ul,
+.usuario-habilidades ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85em;
+    text-align: left;
+    max-height: 100px;
+    overflow-y: auto; /* Permite scroll si hay muchos elementos */
+}
+
+.usuario-trabajos ul li,
+.usuario-proyectos ul li,
+.usuario-redes-sociales ul li,
+.usuario-habilidades ul li {
+    margin: 5px 0;
+}
+
+.usuario-card a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3c91e6;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.usuario-card a:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #3c91e6;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+
+img {
+    width: 200px;
+    height: 200px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
