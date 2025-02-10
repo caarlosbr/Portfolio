@@ -41,6 +41,7 @@ class Usuarios extends DBAbstractModel
     private $fecha_creacion_token;
     private $cuenta_activa;
 
+    /* Creamos los arrays para meterlos */
     private $trabajos = [];
     private $skills = [];
     private $proyectos = [];
@@ -116,6 +117,8 @@ class Usuarios extends DBAbstractModel
     }
 
     // Método para obtener usuario(s) de la base de datos
+    
+    
     public function get($id = null)
     {
         // Si se proporciona un ID, se obtiene un solo usuario
@@ -126,10 +129,10 @@ class Usuarios extends DBAbstractModel
     
             $usuario = $this->rows[0] ?? null;
             if ($usuario) {
-                $usuario['trabajos'] = Trabajos::getInstancia()->getTrabajosPorUsuariosId($usuario['id']);
-                $usuario['skills'] = Skills::getInstancia()->getSkillsPorUsuariosId($usuario['id']);
-                $usuario['proyectos'] = Proyectos::getInstancia()->getProyectosPorUsuariosId($usuario['id']);
-                $usuario['redes'] = RedesSociales::getInstancia()->getRedesSocialesPorUsuarioId($usuario['id']);
+                $this->trabajos = Trabajos::getInstancia()->getTrabajosPorUsuariosId($usuario['id']);
+                $this->skills = Skills::getInstancia()->getSkillsPorUsuariosId($usuario['id']);
+                $this->proyectos = Proyectos::getInstancia()->getProyectosPorUsuariosId($usuario['id']);
+                $this->redes = RedesSociales::getInstancia()->getRedesSocialesPorUsuarioId($usuario['id']);
             }
     
             return $usuario;

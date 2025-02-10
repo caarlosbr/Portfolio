@@ -14,7 +14,7 @@ class RedesController extends BaseController {
     
         if (!isset($_SESSION['usuario_id'])) {
             $_SESSION['error'] = "Debes iniciar sesión para realizar esta acción.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     
@@ -162,7 +162,7 @@ class RedesController extends BaseController {
                 // Verificar que la red social pertenece al usuario autenticado
                 if ($redSocialData[0]['usuarios_id'] !== $usuarios_id) {
                     $_SESSION['error'] = "No tienes permiso para editar esta red social.";
-                    header('Location: /perfil');
+                    header('Location: /');
                     exit;
                 }
 
@@ -194,21 +194,21 @@ class RedesController extends BaseController {
             $redSocial = RedesSociales::getInstancia()->get($id);
             if (empty($redSocial)) {
                 $_SESSION['error'] = "Error: No se encontró la red social.";
-                header('Location: /perfil');
+                header('Location: /');
                 exit;
             }
 
             // Verificar que la red social pertenece al usuario autenticado
             if ($redSocial[0]['usuarios_id'] !== $_SESSION['usuario_id']) {
                 $_SESSION['error'] = "No tienes permiso para editar esta red social.";
-                header('Location: /perfil');
+                header('Location: /');
                 exit;
             }
 
             $this->renderHTML('../views/edit_redsocial.php', ['redSocial' => $redSocial[0]]);
         } else {
             $_SESSION['error'] = "Error: ID no válido.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     }

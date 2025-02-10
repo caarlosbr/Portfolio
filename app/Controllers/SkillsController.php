@@ -159,7 +159,7 @@ class SkillsController extends BaseController {
                 // Verificar que la habilidad pertenece al usuario autenticado
                 if ($skillData[0]['usuarios_id'] !== $usuarios_id) {
                     $_SESSION['error'] = "No tienes permiso para editar esta habilidad.";
-                    header('Location: /perfil');
+                    header('Location: /');
                     exit;
                 }
 
@@ -190,7 +190,7 @@ class SkillsController extends BaseController {
             $skill = Skills::getInstancia()->get($id);
             if (empty($skill)) {
                 $_SESSION['error'] = "Error: No se encontró la habilidad.";
-                header('Location: /perfil');
+                header('Location: /');
                 exit;
             }
 
@@ -204,7 +204,7 @@ class SkillsController extends BaseController {
             $this->renderHTML('../views/edit_skill.php', ['skill' => $skill[0]]);
         } else {
             $_SESSION['error'] = "Error: ID no válido.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     }

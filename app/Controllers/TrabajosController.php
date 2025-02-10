@@ -16,7 +16,7 @@ class TrabajosController extends BaseController {
         // Verificar si el usuario ha iniciado sesión
         if (empty($_SESSION['usuario_id'])) {
             $_SESSION['error'] = "Debes iniciar sesión para realizar esta acción.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     
@@ -28,7 +28,7 @@ class TrabajosController extends BaseController {
         
         if (!$trabajoData) {
             $_SESSION['error'] = "El trabajo no existe o ya fue eliminado.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     
@@ -70,14 +70,14 @@ class TrabajosController extends BaseController {
     
         if (!$trabajoData) {
             $_SESSION['error'] = "El trabajo no existe.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     
         // Verificar que el trabajo pertenezca al usuario autenticado
         if ($trabajoData[0]['usuarios_id'] !== $usuarioId) {
             $_SESSION['error'] = "No tienes permiso para ocultar este trabajo.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     
@@ -187,7 +187,7 @@ class TrabajosController extends BaseController {
                 // Verificar que el trabajo pertenece al usuario autenticado
                 if ($trabajoData[0]['usuarios_id'] !== $usuarios_id) {
                     $_SESSION['error'] = "No tienes permiso para editar este trabajo.";
-                    header('Location: /perfil');
+                    header('Location: /');
                     exit;
                 }
 
@@ -223,21 +223,21 @@ class TrabajosController extends BaseController {
             $trabajo = Trabajos::getInstancia()->get($id);
             if (empty($trabajo)) {
                 $_SESSION['error'] = "Error: No se encontró el trabajo.";
-                header('Location: /perfil');
+                header('Location: /');
                 exit;
             }
 
             // Verificar que el trabajo pertenece al usuario autenticado
             if ($trabajo[0]['usuarios_id'] !== $_SESSION['usuario_id']) {
                 $_SESSION['error'] = "No tienes permiso para editar este trabajo.";
-                header('Location: /perfil');
+                header('Location: /');
                 exit;
             }
 
             $this->renderHTML('../views/edit_trabajo.php', ['trabajo' => $trabajo[0]]);
         } else {
             $_SESSION['error'] = "Error: ID no válido.";
-            header('Location: /perfil');
+            header('Location: /');
             exit;
         }
     }

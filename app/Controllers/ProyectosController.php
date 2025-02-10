@@ -162,6 +162,7 @@ class ProyectosController extends BaseController
                     exit;
                 }
 
+                // Actualizar los datos del proyecto
                 $proyecto->setID($id);
                 $proyecto->setTitulo($titulo);
                 $proyecto->setDescripcion($descripcion);
